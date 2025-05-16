@@ -1,0 +1,769 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepeverse ($PEPEV) - The Ultimate Meme-Fueled Multiverse</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap');
+
+        :root {
+            --goblin-green: #50c878;
+            --goblin-dark: #1a472a;
+            --goblin-light: #8bff9a;
+            --goblin-accent: #ff6b6b;
+            --goblin-secondary: #ffcc29;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: var(--goblin-dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            background-color: rgba(26, 71, 42, 0.9);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bangers', cursive;
+            font-size: 2rem;
+            color: var(--goblin-light);
+            text-shadow: 2px 2px 0 var(--goblin-dark);
+        }
+
+        .logo span {
+            color: var(--goblin-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--goblin-secondary);
+            transform: scale(1.05);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--goblin-secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(45deg, var(--goblin-dark), #2a3e42);
+            overflow: hidden;
+            padding-top: 4rem;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--goblin-green) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Bangers', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: var(--goblin-light);
+            text-shadow: 3px 3px 0 var(--goblin-dark), 6px 6px 0 rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background-color: var(--goblin-accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05) rotate(0deg);
+            box-shadow: 7px 7px 0 rgba(0,0,0,0.2);
+            background-color: #ff5252;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--goblin-green);
+            border-radius: 50%;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--goblin-dark);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background-color: var(--goblin-light);
+        }
+
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 3rem;
+            color: var(--goblin-secondary);
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 3px 3px 0 var(--goblin-dark);
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--goblin-accent);
+            border-radius: 10px;
+        }
+
+        .section-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about {
+            background-color: var(--goblin-dark);
+            position: relative;
+        }
+
+        .about::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: radial-gradient(var(--goblin-light) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.05;
+        }
+
+        .about-text {
+            max-width: 800px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            text-align: center;
+            background-color: rgba(26, 71, 42, 0.8);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid var(--goblin-green);
+        }
+
+        .tokenomics {
+            background-color: #1d3b28;
+        }
+
+        .tokenomics-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .token-card {
+            background-color: rgba(26, 71, 42, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid var(--goblin-green);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .token-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--goblin-light);
+        }
+
+        .token-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(139, 255, 154, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s;
+        }
+
+        .token-card:hover::before {
+            left: 100%;
+        }
+
+        .token-card h3 {
+            font-family: 'Bangers', cursive;
+            color: var(--goblin-secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .token-value {
+            font-size: 2rem;
+            color: var(--goblin-light);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap {
+            background-color: var(--goblin-dark);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--goblin-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .phase {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 3rem;
+        }
+
+        .phase::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--goblin-secondary);
+            border: 4px solid var(--goblin-green);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -17px;
+        }
+
+        .right::after {
+            left: -17px;
+        }
+
+        .phase-content {
+            padding: 1.5rem;
+            background-color: rgba(26, 71, 42, 0.8);
+            border-radius: 15px;
+            position: relative;
+            border: 3px solid var(--goblin-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .phase-content:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--goblin-light);
+        }
+
+        .phase-title {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: var(--goblin-accent);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+        }
+
+        .phase-list {
+            list-style-type: none;
+        }
+
+        .phase-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .phase-list li::before {
+            content: '🐸';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .how-to-buy {
+            background-color: #1d3b28;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background-color: rgba(26, 71, 42, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid var(--goblin-green);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-color: var(--goblin-light);
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--goblin-accent);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            font-family: 'Bangers', cursive;
+        }
+
+        .step h3 {
+            font-family: 'Bangers', cursive;
+            color: var(--goblin-secondary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .footer {
+            background-color: #122016;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--goblin-light);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--goblin-secondary);
+            transform: scale(1.05);
+        }
+
+        .copyright {
+            color: #78a989;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1000px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .phase {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                left: 0;
+            }
+            
+            .phase::after {
+                left: 15px;
+            }
+            
+            .right::after {
+                left: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .token-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">PEPE<span>VERSE</span></div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#how-to-buy">Buy $PEPEV</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Pepeverse: Where Frogs Go Full Goblin Mode</h1>
+                <p class="hero-subtitle">The ultimate meme-fueled multiverse token where frogs reign supreme. Powered by community vibes and dank memes, $PEPEV builds a playful yet rewarding ecosystem for collectors, creators, and degens alike.</p>
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="cta-btn">Buy $PEPEV</a>
+                <div class="social-icons">
+                    <a href="https://twitter.com/nueltechie" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 3.00005C22.0424 3.67552 20.9821 4.19216 19.86 4.53005C19.2577 3.83756 18.4573 3.34674 17.567 3.12397C16.6767 2.90121 15.7395 2.95724 14.8821 3.2845C14.0247 3.61176 13.2884 4.19445 12.773 4.95376C12.2575 5.71308 11.9877 6.61238 12 7.53005V8.53005C10.2426 8.57561 8.50127 8.18586 6.93101 7.39549C5.36074 6.60513 4.01032 5.43868 3 4.00005C3 4.00005 -1 13 8 17C5.94053 18.398 3.48716 19.099 1 19C10 24 21 19 21 7.50005C20.9991 7.2215 20.9723 6.94364 20.92 6.67005C21.9406 5.66354 22.6608 4.39276 23 3.00005Z" fill="#1A472A"/>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/nuelyoungtek" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.2627 2.31015C21.9992 2.09307 21.6823 1.95154 21.3476 1.9019C21.0129 1.85227 20.6711 1.89683 20.3627 2.03015L2.36268 9.03015C1.99333 9.19849 1.68309 9.46977 1.47218 9.81015C1.26127 10.1505 1.15927 10.5459 1.17913 10.9441C1.19899 11.3423 1.33974 11.7258 1.58284 12.0451C1.82595 12.3644 2.16092 12.6045 2.54268 12.7402L5.54268 13.7402L7.54268 20.7402C7.57247 20.8391 7.62493 20.9316 7.69659 21.0114C7.76826 21.0911 7.85763 21.1566 7.95868 21.2032C8.05972 21.2497 8.17014 21.2765 8.28344 21.2817C8.39673 21.2868 8.50956 21.2701 8.61536 21.2332C8.72115 21.1962 8.81799 21.1397 8.89904 21.0669C8.9801 20.994 9.04352 20.9063 9.08472 20.8096C9.12593 20.7129 9.14396 20.6094 9.13759 20.5062C9.13122 20.403 9.10056 20.3021 9.04868 20.2102L7.14268 16.3102L14.2727 10.3102C14.3173 10.2715 14.3509 10.2235 14.3711 10.1698C14.3914 10.1161 14.3977 10.0584 14.3895 10.0017C14.3813 9.945 14.3588 9.89112 14.3236 9.84455C14.2885 9.79798 14.2417 9.75996 14.1873 9.73402C14.1328 9.70807 14.0723 9.69493 14.0118 9.69578C13.9513 9.69663 13.8913 9.71144 13.8378 9.739C13.7843 9.76655 13.7388 9.80602 13.7053 9.85377C13.6719 9.90152 13.6512 9.95625 13.6449 10.0132L12.5427 17.0132C12.5209 17.1743 12.45 17.3255 12.3392 17.4441C12.2285 17.5628 12.0834 17.643 11.9252 17.6732C11.767 17.7033 11.6035 17.6819 11.4589 17.6121C11.3142 17.5422 11.1962 17.4273 11.1227 17.2832L8.00268 12.0032L3.62268 10.3132L21.6227 3.31315C21.8313 3.22315 22.0027 3.06815 22.1127 2.87315C22.2227 2.67815 22.2627 2.45015 22.2227 2.23015C22.2227 2.37315 22.2627 2.31015 22.2627 2.31015Z" fill="#1A472A"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.7001 4.3C18.3001 3.7 16.8001 3.3 15.1001 3.1C15.0001 3.1 14.9001 3.1 14.8001 3.2C14.6001 3.6 14.3001 4.1 14.1001 4.6C12.3001 4.4 10.6001 4.4 8.90005 4.6C8.70005 4.1 8.40005 3.6 8.20005 3.2C8.10005 3.1 8.00005 3.1 7.90005 3.1C6.20005 3.3 4.70005 3.7 3.30005 4.3C3.20005 4.3 3.10005 4.4 3.10005 4.5C0.900053 8 0.200053 11.4 0.600053 14.8C0.600053 14.9 0.700053 15 0.800053 15.1C2.60005 16.4 4.30005 17.2 6.00005 17.7C6.10005 17.7 6.20005 17.7 6.30005 17.6C6.70005 17.1 7.10005 16.5 7.40005 15.9C7.50005 15.7 7.40005 15.5 7.20005 15.4C6.60005 15.2 6.00005 14.9 5.50005 14.6C5.30005 14.5 5.30005 14.2 5.50005 14.1C5.60005 14 5.70005 13.9 5.80005 13.8C5.90005 13.7 6.00005 13.7 6.10005 13.7C10.0001 15.5 14.3001 15.5 18.1001 13.7C18.2001 13.7 18.3001 13.7 18.4001 13.8C18.5001 13.9 18.6001 14 18.7001 14.1C18.9001 14.2 18.9001 14.5 18.7001 14.6C18.2001 14.9 17.6001 15.2 17.0001 15.4C16.8001 15.5 16.7001 15.7 16.8001 15.9C17.1001 16.5 17.5001 17.1 17.9001 17.6C18.0001 17.7 18.1001 17.7 18.2001 17.7C19.9001 17.2 21.6001 16.4 23.4001 15.1C23.5001 15 23.6001 14.9 23.6001 14.8C24.0001 10.9 22.8001 7.5 20.9001 4.5C20.9001 4.4 20.8001 4.3 20.7001 4.3H19.7001ZM8.80005 12.6C7.70005 12.6 6.70005 11.5 6.70005 10.2C6.70005 8.9 7.60005 7.8 8.80005 7.8C10.0001 7.8 10.9001 8.9 10.9001 10.2C10.9001 11.5 10.0001 12.6 8.80005 12.6ZM15.4001 12.6C14.3001 12.6 13.3001 11.5 13.3001 10.2C13.3001 8.9 14.2001 7.8 15.4001 7.8C16.6001 7.8 17.5001 8.9 17.5001 10.2C17.5001 11.5 16.6001 12.6 15.4001 12.6Z" fill="#1A472A"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="animation: float 6s ease-in-out infinite;">
+                    <circle cx="150" cy="150" r="140" fill="#50c878" stroke="#1a472a" stroke-width="4"/>
+                    <ellipse cx="100" cy="110" rx="25" ry="30" fill="white"/>
+                    <ellipse cx="200" cy="110" rx="25" ry="30" fill="white"/>
+                    <circle cx="100" cy="100" r="10" fill="black"/>
+                    <circle cx="200" cy="100" r="10" fill="black"/>
+                    <path d="M90 170 Q 150 220 210 170" stroke="#1a472a" stroke-width="8" fill="none"/>
+                    <circle cx="100" cy="100" r="5" fill="white"/>
+                    <circle cx="200" cy="100" r="5" fill="white"/>
+                    <path d="M75 80 Q 65 60 50 70" stroke="#1a472a" stroke-width="4" fill="none"/>
+                    <path d="M225 80 Q 235 60 250 70" stroke="#1a472a" stroke-width="4" fill="none"/>
+                    <text x="150" y="250" text-anchor="middle" fill="#1a472a" font-family="Bangers" font-size="30">$PEPEV</text>
+                    <circle cx="90" cy="80" r="5" fill="#ff6b6b"/>
+                    <circle cx="210" cy="80" r="5" fill="#ff6b6b"/>
+                    <path d="M120 240 Q 150 220 180 240" stroke="#1a472a" stroke-width="3" fill="none"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container section-wrapper">
+            <h2 class="section-title">About Pepeverse</h2>
+            <div class="about-text">
+                <p>Pepeverse is no ordinary token – it's the most epic frog-powered multiverse to ever grace the blockchain! Forged in the depths of dankest memes and fueled by pure community vibes, $PEPEV is where collectors, creators, and degens unite in a glorious amphibian ecosystem. Whether you're here for the gains, the memes, or just to witness frogs going full goblin mode, Pepeverse welcomes you to the slimiest, most rewarding lily pad in crypto. Join us as we leap beyond the moon and into alternate frog dimensions!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="section tokenomics">
+        <div class="container section-wrapper">
+            <h2 class="section-title">Tokenomics</h2>
+            <div class="tokenomics-content">
+                <div class="token-card">
+                    <h3>Total Supply</h3>
+                    <div class="token-value">1,000,000,000</div>
+                    <p>$PEPEV tokens hopping around the blockchain, ready to be collected by fellow frog enthusiasts.</p>
+                </div>
+                <div class="token-card">
+                    <h3>Token Address</h3>
+                    <div class="token-value" style="font-size: 0.9rem;">3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc</div>
+                    <p>Save this sacred incantation to summon the power of $PEPEV to your wallet.</p>
+                </div>
+                <div class="token-card">
+                    <h3>Network</h3>
+                    <div class="token-value">Solana</div>
+                    <p>The lightning-fast blockchain where our frogs can leap at warp speed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="section roadmap">
+        <div class="container section-wrapper">
+            <h2 class="section-title">Roadmap</h2>
+            <div class="timeline">
+                <div class="phase left">
+                    <div class="phase-content">
+                        <h3 class="phase-title">Phase 1: Genesis Frog</h3>
+                        <ul class="phase-list">
+                            <li>Launch token on Solana with fair community distribution</li>
+                            <li>Pepe meme contest (winner gets NFT + $PEPEV)</li>
+                            <li>Airdrop to OG frog holders</li>
+                            <li>Meme generator tool released</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase right">
+                    <div class="phase-content">
+                        <h3 class="phase-title">Phase 2: Frognomics</h3>
+                        <ul class="phase-list">
+                            <li>PepeSwap integration</li>
+                            <li>Stake-to-earn with meme missions</li>
+                            <li>Pepeverse Explorer Dapp</li>
+                            <li>DAO setup for community-driven governance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase left">
+                    <div class="phase-content">
+                        <h3 class="phase-title">Phase 3: Interdimensional Leap</h3>
+                        <ul class="phase-list">
+                            <li>Pepe-themed NFT mint & marketplace</li>
+                            <li>Pepeverse mobile mini game</li>
+                            <li>Frogmerch drops (hoodies, hats, stickers)</li>
+                            <li>Listings on major DEXs & CoinMarketCap</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="phase right">
+                    <div class="phase-content">
+                        <h3 class="phase-title">Phase 4: Frogtopia</h3>
+                        <ul class="phase-list">
+                            <li>Launch Pepeverse Metaverse space</li>
+                            <li>Meme museum powered by community submissions</li>
+                            <li>Seasonal Pepequests with SOL + NFT rewards</li>
+                            <li>Real-world meme festival with NFT ticketing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section id="how-to-buy" class="section how-to-buy">
+        <div class="container section-wrapper">
+            <h2 class="section-title">How to Buy $PEPEV</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Get a SOL Wallet</h3>
+                    <p>Download a Solana-compatible wallet like Phantom or Solflare to store your $PEPEV tokens.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Visit Our DEX</h3>
+                    <p>Go to gofundmeme.io to access our official exchange platform.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Swap SOL for $PEPEV</h3>
+                    <p>Connect your wallet and swap your SOL for glorious $PEPEV tokens. Welcome to the multiverse!</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://gofundmeme.io/campaigns/3nA1o9VnEVgrD7UL3pCRoYmP9xwX5dDZZzT2Wam3GhZc" class="cta-btn">Buy $PEPEV Now!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#how-to-buy">Buy $PEPEV</a>
+            </div>
+            <p class="copyright">© 2023 Pepeverse ($PEPEV). All rights reserved. For entertainment purposes only. Not financial advice.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```
